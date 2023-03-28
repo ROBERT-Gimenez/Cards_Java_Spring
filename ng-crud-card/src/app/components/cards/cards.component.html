@@ -11,8 +11,9 @@
 </nav>
 
 <div class="col-md-12 p-2">
-    <button type="button" class="btn btn-primary btn-sm" data-bs-toogle="modal" data-bs-target="expampleModal">
-        <i class="fa fa-save"></i>
+
+    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#expampleModal">
+        <i class="fa fa-save"></i> New Card
     </button>
 
   <table class="table mt-2 table-bordered">
@@ -33,10 +34,65 @@
             <td>2341231312</td>
             <td>visa</td>
             <td>231</td>
-            <td>action</td>
+            <td>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toogle="modal"
+                data-bs-target="exampleModal"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" >
+                    <i class="fa fa-trash"></i></button>
+            </td>
         </tr>
     </tbody>
 
   </table>
+
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="expampleModal" tabindex="-1" aria-labelledby="expampleModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" fs-5>New Card</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Number</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Type</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label">Cvv</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">close</button>
+                <button type="button" class="btn btn-success btn-sm" >save</button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
