@@ -13,7 +13,7 @@ export class CardsComponent implements OnInit {
 
 listCard:CardModel [] = [];
 formCard:FormGroup = new FormGroup({});
-
+isUpdate:boolean =false;
 constructor(private cardService:CardService){}
 
 ngOnInit(): void {
@@ -33,6 +33,20 @@ list(){
       this.listCard = res;
     }
   })
+}
+
+newCard(){
+  this.isUpdate=false;
+  this.formCard.reset();
+}
+
+selectItem(item:any){
+  this.isUpdate =true;
+  this.formCard.controls['id_card'].setValue(item.id_card);
+  this.formCard.controls['name'].setValue(item.name);
+  this.formCard.controls['number'].setValue(item.number);
+  this.formCard.controls['type'].setValue(item.type);
+  this.formCard.controls['cvv'].setValue(item.type);
 }
 
 }

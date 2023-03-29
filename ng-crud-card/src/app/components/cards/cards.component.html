@@ -36,8 +36,8 @@
             <td>{{item.type}}</td>
             <td>{{item.cvv}}</td>
             <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toogle="modal"
-                data-bs-target="exampleModal"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                data-bs-target="#expampleModal" (click)="selectItem(item)"><i class="fa fa-pencil"></i></button>
                 <button type="button" class="btn btn-danger btn-sm" >
                     <i class="fa fa-trash"></i></button>
             </td>
@@ -53,8 +53,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title" fs-5>New Card</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 *ngIf="!isUpdate" class="modal-title" fs-5>New Card</h1>
+                <h1 *ngIf="isUpdate" class="modal-title" fs-5>Update Card</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"
+                (click)="newCard()"></button>
                 
             </div>
             <div class="modal-body">
@@ -88,7 +91,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">close</button>
-                <button type="button" class="btn btn-success btn-sm" >save</button>
+                <button *ngIf="!isUpdate" type="button" class="btn btn-success btn-sm" >save</button>
+                <button *ngIf="isUpdate" type="button" class="btn btn-warning btn-sm" >Update</button>
 
             </div>
 
