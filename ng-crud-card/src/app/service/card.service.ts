@@ -6,11 +6,11 @@ import { CardModel } from '../model/card-model';
 @Injectable({
   providedIn: 'root'
 })
-export class CardServiceService {
+export class CardService {
 
   constructor(private http:HttpClient) { }
   
-  getCar(): Observable<CardModel[]>{
+  getCards(): Observable<CardModel[]>{
     return this.http.get<CardModel[]>('http://localhost:9000/api'+'/list').pipe(map(res => res));
   }
   saveCard(req:any): Observable<any>{
