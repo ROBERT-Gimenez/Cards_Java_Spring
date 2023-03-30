@@ -35,6 +35,16 @@ list(){
   })
 }
 
+save(){
+  this.formCard.controls['status'].setValue('1');
+  this.cardService.saveCard(this.formCard.value).subscribe(res=> {
+    if(res){
+      this.list();
+      this.formCard.reset();
+    }
+  })
+}
+
 newCard(){
   this.isUpdate=false;
   this.formCard.reset();
@@ -46,7 +56,7 @@ selectItem(item:any){
   this.formCard.controls['name'].setValue(item.name);
   this.formCard.controls['number'].setValue(item.number);
   this.formCard.controls['type'].setValue(item.type);
-  this.formCard.controls['cvv'].setValue(item.type);
+  this.formCard.controls['cvv'].setValue(item.cvv);
 }
 
 }
