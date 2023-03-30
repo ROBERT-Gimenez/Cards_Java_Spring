@@ -44,6 +44,22 @@ save(){
     }
   })
 }
+update(){
+  this.cardService.updateCard(this.formCard.value).subscribe(res=> {
+    if(res){
+      this.list();
+      this.formCard.reset();
+    }
+  })
+}
+
+deleteCard(id:any){
+  this.cardService.deleteCard(id).subscribe(res=> {
+    if(res){
+      this.list();
+    }
+  })
+}
 
 newCard(){
   this.isUpdate=false;

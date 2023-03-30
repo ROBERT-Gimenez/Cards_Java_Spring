@@ -20,7 +20,7 @@ export class CardService {
     return this.http.put<any>('http://localhost:9000/api'+'/update' , req).pipe(map(res => res));
   }
   deleteCard(id:number): Observable<any>{
-    return this.http.put<any>('http://localhost:9000/api'+'/delete' , id).pipe(map(res => res));
+    return this.http.put<any>(`http://localhost:9000/api/delete/${id}`,id).pipe(map(res => res));
   }
   
 }
