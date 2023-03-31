@@ -7,7 +7,7 @@
                 (click)="closeM()"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="formLogin">
+            <form [formGroup]="formLogin" class="form-admin">
                 <div class="form-group">
                     <label for="username">UserName:</label>
                     <input type="text" class="form-control" id="username" placeholder="Introduce tu usuario" 
@@ -18,7 +18,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña"
                     formControlName="password" >
                 </div>
-        <button type="button" class="btn btn-primary" (click)="login()">Acceder</button>
+                <button type="button" class="btn btn-primary mt-4 btn-model" (click)="login()">Acceder</button>
     </form>
 </div>
 </div>
