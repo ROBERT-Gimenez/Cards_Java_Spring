@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './components/cards/cards.component';
 import {HttpClientModule} from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormAdminComponent } from './components/form-admin/form-admin.component';
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { FormAdminComponent } from './components/form-admin/form-admin.component
     BrowserModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
     
   ],
   providers: [],

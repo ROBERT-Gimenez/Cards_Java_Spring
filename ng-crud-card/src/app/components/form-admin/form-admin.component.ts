@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAdminComponent implements OnInit{
 
-  username?: any;
-  password?: any;
+  username?: string;
+  password?: string;
 
   constructor() { }
 
