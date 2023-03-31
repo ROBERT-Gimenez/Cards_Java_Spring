@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form-admin',
@@ -7,18 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAdminComponent implements OnInit{
 
-  username?: string;
-  password?: string;
+  formLogin:FormGroup = new FormGroup({});
 
   constructor() { }
 
   ngOnInit(): void {
+    this.formLogin = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+    })
   }
 
   login() {
     // Aquí puedes agregar la lógica de inicio de sesión, como enviar una solicitud HTTP a un servidor para verificar el nombre de usuario y la contraseña.
-    console.log('Usuario:', this.username);
-    console.log('Contraseña:', this.password);
+    console.log(this.formLogin.controls['username'].value)
   }
 
+  closeM(){
+    this.formLogin.reset();
+  }
 }
