@@ -28,6 +28,11 @@ public class UserRepo implements UserInterface {
         return jdbcTemplate.update(SQL,new Object[]{user.getUserName() , user.getEmail() , user.getPassword()});
     }
     @Override
+    public UserModel findByEmail(String email) {
+        String SQL = "SELECT * FROM users WHERE email = ?";
+        return jdbcTemplate.queryForObject(SQL, new Object[]{email}, BeanPropertyRowMapper.newInstance(UserModel.class));
+    }
+    @Override
     public int deleteUser(int id) {
         String SQL = "DELETE FROM users WHERE id_card = ?";
         return jdbcTemplate.update(SQL,new Object[]{id});

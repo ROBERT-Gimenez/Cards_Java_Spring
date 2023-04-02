@@ -10,4 +10,5 @@ public interface UserInterface {
     public int saveUser(UserModel user);
     public int updateUser(UserModel user);
     public int deleteUser(int id);
+    UserModel findByEmail(String email);
 }

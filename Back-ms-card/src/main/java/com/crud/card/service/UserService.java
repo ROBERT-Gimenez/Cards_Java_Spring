@@ -55,6 +55,16 @@ public class UserService implements UserInterface {
         }
         return row;
     }
+    @Override
+    public UserModel findByEmail(String email) {
+        UserModel foundUser;
+        try {
+            foundUser = User.findByEmail(email);
+        } catch (Exception ex) {
+            throw ex;
+        }
+        return foundUser;
+    }
 }
 
 
