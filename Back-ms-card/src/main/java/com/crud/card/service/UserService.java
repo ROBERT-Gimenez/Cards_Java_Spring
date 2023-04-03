@@ -10,13 +10,13 @@ import java.util.List;
 @Service
 public class UserService implements UserInterface {
     @Autowired
-    private UserInterface User;
+    private UserInterface Users;
 
     @Override
     public List<UserModel> AllUsers() {
         List<UserModel> list;
         try {
-            list = User.AllUsers();
+            list = Users.AllUsers();
         }catch (Exception ex){
             throw ex;
         }
@@ -27,7 +27,7 @@ public class UserService implements UserInterface {
     public int saveUser(UserModel user) {
         int row;
         try {
-            row = User.saveUser(user);
+            row = Users.saveUser(user);
         }catch (Exception ex){
             throw ex;
         }
@@ -38,7 +38,7 @@ public class UserService implements UserInterface {
     public int updateUser(UserModel user) {
         int row;
         try {
-            row = User.updateUser(user);
+            row = Users.updateUser(user);
         }catch (Exception ex){
             throw ex;
         }
@@ -49,7 +49,7 @@ public class UserService implements UserInterface {
     public int deleteUser(int id) {
         int row;
         try {
-            row = User.deleteUser(id);
+            row = Users.deleteUser(id);
         }catch (Exception ex){
             throw ex;
         }
@@ -59,7 +59,7 @@ public class UserService implements UserInterface {
     public UserModel findByEmail(String email) {
         UserModel foundUser;
         try {
-            foundUser = User.findByEmail(email);
+            foundUser = Users.findByEmail(email);
         } catch (Exception ex) {
             throw ex;
         }
