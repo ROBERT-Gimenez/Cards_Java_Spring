@@ -23,22 +23,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+     /*   http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/allUsers").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/saveUser").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
                 .and()
                 .csrf().disable();
+
+      */
+        http.csrf().disable().authorizeRequests().anyRequest().permitAll();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("admin")
-                .password("{bcrypt}$2a$10$ktGkLnzep3KIC/eIXcS/xuS7O/jJZDfLZg8yx52vf4/UJx2Q6D0U6")
+               // .password("{bcrypt}$2a$10$ktGkLnzep3KIC/eIXcS/xuS7O/jJZDfLZg8yx52vf4/UJx2Q6D0U6")
+                .password("hola123")
                 .roles("ADMIN");
     }
 
