@@ -8,6 +8,9 @@ public interface PendingInterface {
 
     public List<Pendientes> allPending();
 
+
+    public List<Pendientes> allApproved();
+
     public int save(Pendientes file);
 
     public int update(Pendientes file);

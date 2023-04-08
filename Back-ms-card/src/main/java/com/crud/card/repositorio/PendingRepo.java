@@ -19,17 +19,22 @@ public class PendingRepo implements PendingInterface {
         String sql = "SELECT * FROM pendientes WHERE status  != 'Aceptado'";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pendientes.class));
     }
+    @Override
+    public List<Pendientes> allApproved(){
+        String sql = "SELECT * FROM pendientes WHERE status = 'Aceptado'";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pendientes.class));
+    }
 
     @Override
     public int save(Pendientes file) {
-        String sql = "INSERT INTO cards (file_id, userName, typeRequest, dateCreated, status) VALUES (?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, file.getFile_id(), file.getUserName(), file.getTypeRequest(),file.getDateCreated(),file.getStatus());
+        String sql = "INSERT INTO pendientes (file_id, user_name, type_request, date_created, status) VALUES (?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, new Object[]{file.getFile_id(), file.getUser_name(), file.getType_request(),file.getDate_created() ,file.getStatus()});
     }
 
     @Override
     public int update(Pendientes file) {
-        String sql = "UPDATE pendientes SET userName=? , typeRequest=? , status=?  WHERE file_id = ?";
-        return jdbcTemplate.update(sql, file.getFile_id(), file.getUserName(), file.getTypeRequest(),file.getDateCreated(),file.getStatus());
+        String sql = "UPDATE pendientes SET user_name=COALESCE(?, user_name), type_request=COALESCE(?, type_request), date_created=COALESCE(?, date_created), status=COALESCE(?, status) WHERE file_id=?";
+        return jdbcTemplate.update(sql, new Object[]{file.getUser_name(), file.getType_request(), file.getDate_created(), file.getStatus(), file.getFile_id()});
     }
 
     @Override

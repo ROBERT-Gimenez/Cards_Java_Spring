@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pendientes")
@@ -16,17 +17,22 @@ public class Pendientes {
         private int file_id;
 
         @Column
-        private String userName;
+        private String user_name;
 
         @Column
-        private String typeRequest;
+        private String type_request;
 
         @Column
         @CreationTimestamp
-        private LocalDate dateCreated;
+        private LocalDate date_created;
 
-        @Column
+        @Column(columnDefinition = "varchar(255) default 'pendiente'")
         private String status;
+
+       public Pendientes() {
+                this.date_created = LocalDate.now(); // asignar la fecha actual por defecto
+                this.status = "pendiente"; // asignar "pendiente" por defecto
+        }
 
     }
 

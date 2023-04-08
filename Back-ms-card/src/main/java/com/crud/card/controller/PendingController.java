@@ -18,22 +18,27 @@ public class PendingController {
     @Autowired
     private PendingRepo pendingService;
 
-    @GetMapping("allPending")
-    public ResponseEntity<List<Pendientes>> List(){
+    @GetMapping("/allPending")
+    public ResponseEntity<List<Pendientes>> allPending(){
         var result = pendingService.allPending();
+        return new ResponseEntity<>(result , HttpStatus.OK);
+    }
+    @GetMapping("/allApproved")
+    public ResponseEntity<List<Pendientes>> allApproved(){
+        var result = pendingService.allApproved();
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
     @PostMapping("/addedPending")
-    public ResponseEntity<ModelService> saveUser(@RequestBody Pendientes file) {
+    public ResponseEntity<ModelService> addedPending(@RequestBody Pendientes file) {
         ModelService messageResp = new ModelService();
         pendingService.save(file);
         messageResp.setSuccess(true);
         messageResp.setMessage("File saved with success");
         return ResponseEntity.ok(messageResp);
     }
-    @PutMapping("/UpdatePending")
-    public ResponseEntity<ModelService> update(@RequestBody Pendientes file){
+    @PutMapping("/updatePending")
+    public ResponseEntity<ModelService> updatePending(@RequestBody Pendientes file){
         ModelService messageResp = new ModelService();
         int result = pendingService.update(file);
         if(result == 1){
