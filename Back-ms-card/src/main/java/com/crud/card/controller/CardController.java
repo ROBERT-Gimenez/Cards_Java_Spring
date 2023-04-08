@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")//cualquier cliente va a poder consumir nuestro cliente
+@CrossOrigin("*")//cualquier cliente va a poder consumir nuestra api
 public class CardController {
     @Autowired
     private CardService cardService;

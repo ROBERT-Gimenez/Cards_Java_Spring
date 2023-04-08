@@ -3,7 +3,7 @@ package com.crud.card.service;
 import com.crud.card.modelo.Card;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.crud.card.repositorio.RepoCard;
+import com.crud.card.repositorio.CardInterface;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class ICardService implements CardService {
 
     @Autowired
-    private RepoCard repoCard;
+    private CardInterface repoCard;
 
     @Override
     public List<Card> findAll() {

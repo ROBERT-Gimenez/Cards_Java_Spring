@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository//con esto consultamos la base de datos
-public class CardRepository implements RepoCard {
+public class CardRepository implements CardInterface {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Override
