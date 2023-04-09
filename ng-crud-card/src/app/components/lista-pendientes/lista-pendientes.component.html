@@ -1,0 +1,30 @@
+<div class="container mt-3">
+    <h2 class="title">Gestión de pendientes</h2>
+    <div class="btns_header">
+        <div class="btn arrow"> <i class="fa fa-arrow-down"></i></div>
+        <div class="btn"><i class="fa fa-filter" aria-hidden="true"></i></div>
+        <div class="btn"><i class="fa fa-list" aria-hidden="true"></i></div>
+        <div class="btn"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <div class="total"><b>{{X}}</b> Registros encontrados</div>
+    </div>
+        <table class="table table-hover">
+      <thead>
+        <tr class="header_tr">
+          <th>Legajo</th>
+          <th>Apellido y Nombre</th>
+          <th>Modificacion Solicitada</th>
+          <th>Fecha de Solicitud</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listPending">
+          <td>{{item?.file_id}}</td>
+          <td>{{item?.user_name}}</td>
+          <td>{{item?.type_request}}</td>
+          <td>{{item?.date_created}}</td>
+          <td>{{item?.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

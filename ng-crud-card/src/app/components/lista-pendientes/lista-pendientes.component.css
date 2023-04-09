@@ -1,0 +1,31 @@
+.btns_header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.btn{
+    border-radius: 50%;
+    border: 1px solid #02CEFF;
+    color: #02CEFF;
+}
+.arrow i{
+    border-bottom: ridge;
+   
+}
+.total{
+    color: #686E76;
+}
+.total b {
+    border-bottom: solid 1px #02CEFF;
+}
+.title{
+    font-family:Montserrat-Regular;
+}
+.header_tr{
+    border-bottom-color: #02CEFF;
+    color: #686E76;
+}
+tbody{
+    color: #686E76;
+    font-size: 12px;
+}
