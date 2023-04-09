@@ -26,12 +26,12 @@ public class Pendientes {
         @CreationTimestamp
         private LocalDate date_created;
 
-        @Column(columnDefinition = "varchar(255) default 'pendiente'")
+        @Column(columnDefinition = "varchar(255) default 'No leído'")
         private String status;
 
        public Pendientes() {
                 this.date_created = LocalDate.now(); // asignar la fecha actual por defecto
-                this.status = "pendiente"; // asignar "pendiente" por defecto
+                this.status = "No Visto"; // asignar "pendiente" por defecto
         }
 
     }
