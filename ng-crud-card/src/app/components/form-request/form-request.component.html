@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header"> 
+            <h4 class="modal-title">New Request</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"
+                (click)="closeM()"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formResques" class="form-admin">
+                <div class="form-group">
+                  <label for="username">UserName:</label>
+                  <input type="text" class="form-control" id="username" placeholder="Introduce tu usuario" formControlName="user_name">
+                </div>
+                <div class="form-group">
+                  <label for="password">Tipo De Solicitud:</label>
+                  <select class="form-control" formControlName="type_request">
+                    <option value="Cambio de Domicilio">Cambio de domicilio</option>
+                    <option value="Cambio de Telefono">Cambio de teléfono</option>
+                    <option value="Cambio de Email">Cambio de Email</option>
+                    <option value="Cambio de Cuenta Bancaria">Cambio de cuenta bancaria</option>
+                  </select>
+                </div>
+                <button type="button" class="btn btn-primary mt-4 btn-model" (click)="save()" data-bs-dismiss="modal">Enviar solicitud</button>
+            </form>
+</div>
+</div>
+</div>

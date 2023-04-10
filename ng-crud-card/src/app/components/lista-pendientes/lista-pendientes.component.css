@@ -9,14 +9,14 @@
     color: #02CEFF;
 }
 .arrow i{
-    border-bottom: ridge;
+    border-bottom: 1px solid;
    
 }
 .total{
     color: #686E76;
 }
 .total b {
-    border-bottom: solid 1px #02CEFF;
+    border-bottom: solid 2px #02CEFF;
 }
 .title{
     font-family:Montserrat-Regular;

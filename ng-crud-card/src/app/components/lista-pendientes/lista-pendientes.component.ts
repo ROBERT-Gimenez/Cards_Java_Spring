@@ -26,4 +26,8 @@ export class ListaPendientesComponent implements OnInit {
       }
     })
   }
+
+  log(item:any , change:any){
+    alert(`${item} a solicitado ${change}`)
+  }
 }

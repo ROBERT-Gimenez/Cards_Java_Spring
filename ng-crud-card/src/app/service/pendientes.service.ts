@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pendientes } from '../interface/pendientes';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +16,8 @@ export class PendientesService {
         return res;
       })
     );
+  }
+  addedPending(req:any): Observable<any>{
+    return this.http.post<any>('http://localhost:9000/api/addedPending' , req).pipe(map(res => res));
   }
 }

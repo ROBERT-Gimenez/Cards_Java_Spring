@@ -21,13 +21,13 @@
         <i class="fa fa-user"></i>  Admin
     </button>
     <button type="button" class="btn btn-primary btn-sm m-2" data-bs-toggle="modal"
-    data-bs-target="#expampleModal2" (click)="newCard()">
+    data-bs-target="#ModalRequest" (click)="newCard()">
         <i class="fa fa-user-plus"></i>  new request
     </button>
     <button type="button" class="btn btn-primary btn-sm m-2" data-bs-toggle="modal"
-    data-bs-target="#expampleModal2" (click)="newCard()">
-        <i class="fa fa-user"></i>  Gestion de pendientes
-    </button>
+    data-bs-target="#expampleModal2" (click)="navigateTo('/pendientes')">
+<i class="fa fa-user"></i>  Gestion de pendientes
+</button>
 
   <table class="table mt-2 table-bordered">
     <thead class="table-primary">
@@ -116,4 +116,8 @@
 </div>
 <div class="modal fade" id="expampleModal2" tabindex="-1" aria-labelledby="expampleModal2" aria-hidden="true">
     <app-form-admin></app-form-admin>
+</div>
+
+<div class="modal fade" id="ModalRequest" tabindex="-1"  aria-labelledby="ModalRequest" aria-hidden="true">
+    <app-form-request></app-form-request>
 </div>

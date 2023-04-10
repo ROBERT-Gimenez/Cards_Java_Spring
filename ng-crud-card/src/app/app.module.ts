@@ -9,12 +9,14 @@ import { FormAdminComponent } from './components/form-admin/form-admin.component
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { ListaPendientesComponent } from './components/lista-pendientes/lista-pendientes.component';
+import { FormRequestComponent } from './components/form-request/form-request.component';
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
     FormAdminComponent,
-    ListaPendientesComponent
+    ListaPendientesComponent,
+    FormRequestComponent
     
   ],
   imports: [

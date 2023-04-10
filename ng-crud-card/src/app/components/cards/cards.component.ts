@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CardModel } from 'src/app/model/card-model';
 import { CardService } from 'src/app/service/card.service';
 
@@ -14,7 +15,8 @@ export class CardsComponent implements OnInit {
 listCard:CardModel [] = [];
 formCard:FormGroup = new FormGroup({});
 isUpdate:boolean =false;
-constructor(private cardService:CardService){}
+constructor(private router: Router,
+  private cardService:CardService){}
 
 ngOnInit(): void {
   this.list();
@@ -75,4 +77,7 @@ selectItem(item:any){
   this.formCard.controls['cvv'].setValue(item.cvv);
 }
 
+navigateTo(route: string): void {
+  this.router.navigateByUrl(route);
+}
 }

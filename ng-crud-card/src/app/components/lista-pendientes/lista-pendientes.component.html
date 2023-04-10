@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of listPending">
+        <tr (click)="log(item?.user_name , item?.type_request)" *ngFor="let item of listPending">
           <td>{{item?.file_id}}</td>
           <td>{{item?.user_name}}</td>
           <td>{{item?.type_request}}</td>
