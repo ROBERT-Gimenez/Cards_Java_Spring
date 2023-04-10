@@ -2,7 +2,7 @@ package com.crud.card.controller;
 
 import com.crud.card.modelo.ModelService;
 import com.crud.card.modelo.Pendientes;
-import com.crud.card.modelo.UserModel;
+import com.crud.card.modelo.UserAndPending;
 import com.crud.card.repositorio.PendingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +21,10 @@ public class PendingController {
     @GetMapping("/allPending")
     public ResponseEntity<List<Pendientes>> allPending(){
         var result = pendingService.allPending();
+        return new ResponseEntity<>(result , HttpStatus.OK);
+    }@GetMapping("/prueba")
+    public ResponseEntity<List<UserAndPending>> prueba(){
+        var result = pendingService.prueba();
         return new ResponseEntity<>(result , HttpStatus.OK);
     }
     @GetMapping("/allApproved")

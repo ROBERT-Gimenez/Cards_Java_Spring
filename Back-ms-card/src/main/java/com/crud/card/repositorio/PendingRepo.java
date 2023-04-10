@@ -1,7 +1,7 @@
 package com.crud.card.repositorio;
 
-import com.crud.card.modelo.Card;
 import com.crud.card.modelo.Pendientes;
+import com.crud.card.modelo.UserAndPending;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,7 +24,18 @@ public class PendingRepo implements PendingInterface {
         String sql = "SELECT * FROM pendientes WHERE status = 'Aceptado'";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pendientes.class));
     }
-
+ /*   @Override
+    public List<Pendientes> prueba() {
+        String sql = "SELECT p.*, u.user_name, u.email FROM pendientes p JOIN users u ON p.file_id = u.id_request WHERE p.status != 'Aceptado'";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pendientes.class));
+    }*/
+    public List<UserAndPending> prueba() {
+        String sql = " SELECT p.file_id, p.user_name, p.type_request, p.date_created, p.status, u.user_name,u.email " +
+                " FROM pendientes p " +
+                " LEFT JOIN users u ON p.user_name = u.user_name  " +
+                " WHERE p.file_id = u.id_request AND u.id_request = p.file_id  ";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(UserAndPending.class));
+    }
     @Override
     public int save(Pendientes file) {
         String sql = "INSERT INTO pendientes (file_id, user_name, type_request, date_created, status) VALUES (?, ?, ?, ?, ?)";

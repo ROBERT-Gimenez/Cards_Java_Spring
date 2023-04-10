@@ -24,6 +24,10 @@ public class UserModel {
     @Column
     String password;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_request") // clave foránea
+    private Pendientes pendientes;
+
 
     public void setPassword(String password) {
         this.password = DigestUtils.sha256Hex(password);
